@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+
+        String.prototype.filter=function (remVal) {
+            let res=this.toString();
+            for(let item in remVal){
+                res = res.split(remVal[item]).join('***');
+            }
+            return res;
+        }
+
+        console.log("This house is nice".filter(['house','nice']));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

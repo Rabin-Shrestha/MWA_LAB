@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<h3>BMI Calculator</h3>
+<input type='radio' name='unit' value='matric'/>Matric<br>
+<input type='radio' name='unit' value='english'/>English<br>
+<input type='Number' name='height' placeholder='Enter your height'/>
+<input type='Number' name='Weight' placeholder='Enter your weight'/>
+<button id="calculate">calculate</button>
+<div id="output"></div>
+
+<script type="text/javascript">
+
+    /*<!-- BMI Classification
+     English BMI Formula (Imperial)
+     BMI = (Weight in Pounds / (Height in inches x Height in inches)) x 703
+     Metric BMI Formula
+     BMI = (Weight in Kilograms / (Height in Meters x Height in Meters))
+     18.5 or less	Underweight	Info	Treatment
+     18.5 to 24.99	Normal Weight	Info	Treatment
+     25 to 29.99	Overweight	Info	Treatment
+     30 to 34.99	Obesity (Class 1)	Info	Treatment
+     35 to 39.99	Obesity (Class 2)	Info	Treatment
+     40 or greater	Morbid Obesity	Info	Treatment
+     --*/
+
+
+    function BMICalulator() {
+        let selectedunit = document.querySelector('input[name="unit"]:checked');
+        let height = document.getElementsByName("height")[0].value || 0;
+        let weight = document.getElementsByName("Weight")[0].value || 0;
+
+        if (selectedunit == null) {
+            alert("Check unit first !!");
+            return;
+        }
+        else if (height == 0 || weight == 0) {
+            alert("Enter valid height and weight  !!");
+            return;
+        }
+        else if (height < 1 || weight < 1 || height > 10 || weight > 500) {
+            alert("Height range is  [1-10] and Weight range is [1-500]");
+            return;
+
+        }
+
+        let BMI = (selectedunit.value == 'english') ?( weight / (height * height) )* 703 : (weight / (height * height));
+        if (BMI <= 18.5)
+            alert("uner weight");
+        else if (BMI < 25)
+            alert("Normal Weight");
+        else if (BMI < 30)
+            alert("over Weight");
+        else if (BMI < 35)
+            alert("Obesity class 1 ");
+        else if (BMI < 40)
+            alert("Obesity class 2 ");
+        else
+            alert("Morbit Obesity ")
+
+
+    }
+    (function () {
+        document.getElementById('calculate').onclick = BMICalulator;
+
+
+    })();
+
+
+</script>
+</body>
+</html>

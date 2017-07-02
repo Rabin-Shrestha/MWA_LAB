@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script type="text/javascript">
+        var library=[
+            {prof:'Assad Saad',course:'WAP',courseID:'cs452'},
+            {prof:'Rakesh Shrestha',course:'WAA',courseID:'cs545'},
+            {prof:'Steave Nolle',course:'SWE',courseID:'cs425'},
+        ];
+
+        const sorteddata=library.sort( function(a,b){
+            var x = a.course.toLowerCase();
+            var y = b.course.toLowerCase();
+            return x < y ? -1 : x > y ? 1 : 0;}
+        );
+
+        for(let profData of sorteddata)
+        {
+            //
+            console.log(profData);
+            for(let profkey in profData)
+            {
+                console.log(`${profkey} : ${profData[profkey]}`);
+            }
+        }
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

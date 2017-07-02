@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Function Constructor</title>
+    <script type="text/javascript">
+        // Function as class
+        function Person(name,subject){
+            this.name=name;
+        }
+        //extending the Person Function and adding new method teach()
+        Person.prototype.teach= function(Subject){
+            console.log(this.name+" is now teaching "+Subject);
+        }
+
+        var TeacherA= new Person("Rabin");
+        var TeacherB=new Person("Assaad");
+        TeacherA.teach("MPP")
+        TeacherB.teach("MWA");
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

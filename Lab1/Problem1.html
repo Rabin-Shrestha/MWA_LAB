@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+
+</head>
+<body>
+<ul>
+    <li data-time="5:17">ECMA6 Video</li>
+    <li data-time="8-22">Node Video</li>
+    <li data-time="3:34">Node Video</li>
+    <li data-time="4:29">ECMA6 Video</li>
+
+</ul>
+<label id="result"></label>
+<script type="text/javascript">
+    $(document).ready(function jsCodeLoader(){
+        const items=Array.from(document.querySelectorAll('[data-time]'));
+        console.log(items);
+        const filterEcma=items.filter(function(item){
+            return item.innerText.includes('ECMA6');
+        });
+
+        console.log(filterEcma);
+        const times=filterEcma.map(item =>item.getAttribute('data-time'));
+        console.log(times);
+        const seconds=times.map(item=> {let values=item.split(':'); return Number(values[0]*60)+Number(values[1])})
+        console.log(seconds);
+        const totalTime= seconds.reduce((sum,time)=>sum+Number(time),0);
+        console.log(totalTime);
+
+        document.getElementById('result').innerHTML =`
+        The total video play time for ECMA6= ${totalTime}`;
+
+
+    });
+
+
+</script>
+</body>
+
+</html>

@@ -48,7 +48,7 @@ router.get('/', function(req, res, next) {
             const dataPromise= await promise3;
             const data=await dataPromise.json();
             allData.dataFromAsyncAwait=data;
-            res.render('users', { allData});
+            res.render('users', { allData:allData, title:'User Listing Express App'});
 
         }
         catch(err)

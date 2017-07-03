@@ -3,6 +3,7 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+   p Fetching data using simple Promise
      table
             tr
                 th Id
@@ -27,7 +28,7 @@ block content
                     td: !{user.address.geo.lat}
                     td: !{user.website}
 
-
+   p Fetching data using Reactive Observable
     table
         tr
             th Id
@@ -52,7 +53,7 @@ block content
                 td: !{user.address.geo.lat}
                 td: !{user.website}
 
-
+   p Fetching data using  Async and Await
     table
         tr
             th Id

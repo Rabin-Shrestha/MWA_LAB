@@ -15,7 +15,7 @@ block content
                 th Longitude
                 th Website
 
-            for user in users
+            for user in allData.dataFromPromisify
                 tr
                     td: !{user.id}
                     td: !{user.name}
@@ -26,4 +26,54 @@ block content
                     td: !{user.address.geo.lng}
                     td: !{user.address.geo.lat}
                     td: !{user.website}
+
+
+    table
+        tr
+            th Id
+            th Name
+            th UserName
+            th Email
+            th City
+            th "Zip Code"
+            th Latitude
+            th Longitude
+            th Website
+
+        for user in allData.dataFromReactiveObservable
+            tr
+                td: !{user.id}
+                td: !{user.name}
+                td: !{user.username}
+                td: !{user.email}
+                td: !{user.address.city}
+                td: !{user.address.zipcode}
+                td: !{user.address.geo.lng}
+                td: !{user.address.geo.lat}
+                td: !{user.website}
+
+
+    table
+        tr
+            th Id
+            th Name
+            th UserName
+            th Email
+            th City
+            th "Zip Code"
+            th Latitude
+            th Longitude
+            th Website
+
+        for user in allData.dataFromAsyncAwait
+            tr
+                td: !{user.id}
+                td: !{user.name}
+                td: !{user.username}
+                td: !{user.email}
+                td: !{user.address.city}
+                td: !{user.address.zipcode}
+                td: !{user.address.geo.lng}
+                td: !{user.address.geo.lat}
+                td: !{user.website}
 

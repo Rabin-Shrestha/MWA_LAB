@@ -10,7 +10,7 @@ var router = express.Router();
 /* GET news letter data listing. */
 router.get('/', function(req, res, next) {
     //res.send('respond with a resource');
-    res.render('newsletterView',{title:'Newsletter Feed'})
+    res.render('newsletterView',{title:'NewsFeed'})
 });
 
 
@@ -19,7 +19,8 @@ router.post('/subscribe', function(req, res, next) {
     /***************************************
      * Checking Token
      ****************************************/
-        req.csrfToken()
+    // todo
+    // req.csrfToken()
 
 
 
@@ -36,7 +37,7 @@ router.post('/subscribe', function(req, res, next) {
         res.render('newsletterView',{errors: errors[0].msg});
     }else{
         //After successful Validation
-        fs.appendFileSync('subscriberList.txt',${email}+'\n'); // writing subscriber email in  file
+        fs.appendFileSync('subscriberList.txt',email+'\n'); // writing subscriber email in  file
         res.render("thankyouView",{EMAIL:email}); // rendering thank you page
     }
 

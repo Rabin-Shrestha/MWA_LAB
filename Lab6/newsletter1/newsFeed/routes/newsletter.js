@@ -10,7 +10,7 @@ var router = express.Router();
 /* GET news letter data listing. */
 router.get('/', function(req, res, next) {
     //res.send('respond with a resource');
-    res.render('newsletterView',{title:'NewsFeed'})
+    res.render('newsletterView',{title:'NewsFeed',csrfTokenFromServer:req.csrfToken()})
 });
 
 
@@ -20,7 +20,7 @@ router.post('/subscribe', function(req, res, next) {
      * Checking Token
      ****************************************/
     // todo
-    // req.csrfToken()
+  //  var csrfTokenFromServer=req.csrfToken();
 
 
 
@@ -34,7 +34,7 @@ router.post('/subscribe', function(req, res, next) {
     var errors = req.validationErrors();
     console.log(errors);
     if(errors){
-        res.render('newsletterView',{errors: errors[0].msg});
+        res.render('newsletterView',{errors: errors[0].msg,title:'NewsFeed',csrfTokenFromServer:req.csrfToken()});
     }else{
         //After successful Validation
         fs.appendFileSync('subscriberList.txt',email+'\n'); // writing subscriber email in  file

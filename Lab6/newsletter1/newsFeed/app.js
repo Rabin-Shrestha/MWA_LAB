@@ -30,7 +30,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //for security token
-//app.use(csrf({cookie:true}));
+app.use(csrf({cookie:true}));
 
 app.use('/', index);
 app.use('/users', users);

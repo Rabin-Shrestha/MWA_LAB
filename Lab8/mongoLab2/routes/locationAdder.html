@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <script src="/javascripts/jquery-2.1.1.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+    <link rel="stylesheet" href="/stylesheets/jquery-gmaps-latlon-picker.css">
+    <script src="/javascripts/jquery-gmaps-latlon-picker.js"></script>
+    <script src="/javascripts/myScript.js"></script>
+</head>
+<body>
+<h1>MUM Location Picker:</h1>
+<fieldset class="gllpLatlonPicker">
+    <input type="text" class="gllpSearchField">
+    <input type="button" value="search" class="gllpSearchButton">
+    <input form="form1" type="hidden" name="lat" value="20" class="gllpLatitude">
+    <input form="form1" type="hidden" name="long" value="20" class="gllpLongitude">
+    <div class="gllpMap">Google Maps</div>
+    <input type="hidden" value="3" class="gllpZoom">
+</fieldset>
+<h3>Add Location in Database</h3>
+<p>Point the location on map, then enter name and type of location</p>
+<form id="form1" name="addLocation" method="post" action="/addLocation">
+    <label>Name:</label>
+    <input type="text" placeholder="Location Name" name="name"><br><br>
+    <label>Type:</label>
+    <input type="text" placeholder="Location Type" name="type"><br><br>
+    <button type="submit">Add location</button><br><br><br><br>
+</form>
+<form id="form2" name="DelLocForm" method="post" action="/deleteLocation">
+
+</form>
+<form id="form3" name="updateLocForm" method="post" action="/updateLocation">
+    <label>Name:</label>
+    <input type="text" placeholder="Location Name" name="name"><br><br>
+    <label>Type:</label>
+    <input type="text" placeholder="Location Type" name="type"><br><br>
+    <label>Latitude:</label>
+    <input type="text" placeholder="Location Name" name="updateLat"><br><br>
+    <label>Longitude:</label>
+    <input type="text" placeholder="Location Type" name="updateLong"><br><br>
+    <button type="submit">Add location</button><br><br><br><br>
+</form>
+</body>
+</html>

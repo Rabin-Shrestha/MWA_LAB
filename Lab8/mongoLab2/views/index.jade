@@ -1,0 +1,86 @@
+doctype html
+html
+  head
+    title
+    script(src='/javascripts/jquery-2.1.1.min.js')
+    script(src='http://maps.googleapis.com/maps/api/js?sensor=false')
+    link(rel='stylesheet', href='/stylesheets/jquery-gmaps-latlon-picker.css')
+    script(src='/javascripts/jquery-gmaps-latlon-picker.js')
+    script(src='/javascripts/myScript.js')
+    // Latest compiled and minified CSS
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css', integrity='sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u', crossorigin='anonymous')
+    // Optional theme
+    link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
+    // Latest compiled and minified JavaScript
+    script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
+
+  body
+    h4 MUM Location Picker:
+    fieldset.gllpLatlonPicker
+      input.gllpSearchField(type='text')
+      input.gllpSearchButton(type='button', value='search')
+      input.gllpLatitude(form='form1', type='hidden', name='lat', value='20')
+      input.gllpLongitude(form='form1', type='hidden', name='long', value='20')
+      .gllpMap Google Maps
+      input.gllpZoom(type='hidden', value='3')
+    h4 Add Location in Database
+    p Point the location on map, then enter name and type of location
+    form#form1(name='addLocation', method='post', action='/addLocation')
+      label Name:
+      input(type='text', placeholder='Location Name', name='name')
+      br
+      br
+      label Type:
+      input(type='text', placeholder='Location Type', name='type')
+      br
+      br
+      button(type='submit') Add location
+      br
+      br
+      br
+      br
+    h4 Delete Location in Database
+    form#form2(name='DelLocForm', method='post', action='/deleteLocation')
+      input(type='hidden' name='locationId' id='locationID' value='')
+      label List of loacation in Database:
+           ol
+               each loc in locationList
+                 li= loc.name
+                   input(type='checkbox', name='deleteBoxs' value=loc._id)
+                   button.btn.btn-info.btn-sm(type='button', class='editBtn' name=JSON.stringify(loc) value='Update' data-toggle='modal', data-target='#myModal') edit
+
+
+
+           button(type='submit') Delete location
+
+    // Modal
+    #myModal.modal.fade(role='dialog')
+      .modal-dialog
+        // Modal content
+        .modal-content
+          .modal-header
+            button.close(type='button', data-dismiss='modal') ×
+            h4.modal-title Update Location in Database
+          .modal-body
+            form#form3(name='updateLocForm', method='post', action='/updateLocation')
+                  input(type='hidden' name='upId' id='upLocId' value='')
+                  label Name:
+                  input(type='text', placeholder='Location Name', id='upName' name='upName')
+                  br
+                  br
+                  label Type:
+                  input(type='text', placeholder='Location Type', id='upType' name='upType')
+                  br
+                  br
+                  label Latitude:
+                  input(type='text', placeholder='Latitude', id='updateLat' name='upLat')
+                  br
+                  br
+                  label Longitude:
+                  input(type='text', placeholder='Longitude', id='updateLong' name='upLong')
+                  br
+                  br
+                  button(type='submit') Update location
+
+
+

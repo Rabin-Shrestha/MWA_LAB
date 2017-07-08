@@ -10,6 +10,7 @@ var users = require('./routes/users');
 var addLoc=require('./routes/locationadder');
 var delLoc=require('./routes/locationDelete');
 var updateLoc=require('./routes/locationUpdate');
+var searchLoc=require('./routes/locationSearch')
 
 var app = express();
 /****************************************
@@ -48,6 +49,8 @@ app.use('/users', users);
 app.use('/addLocation',addLoc);
 app.use('/deleteLocation',delLoc)
 app.use('/updateLocation',updateLoc);
+app.use('/locationSearch',searchLoc);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

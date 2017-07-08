@@ -1,27 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var db;
-/*
- *{ _id: 595beaa46c975c6283af77e2,
- address:
- { building: '8405',
- coord: [ -74.02521709999999, 40.6224629 ],
- street: '5 Avenue',
- zipcode: '11209' },
- district: 'Brooklyn',
- cuisine: 'Chinese',
- grades:
- [ { date: 2014-02-25T00:00:00.000Z, grade: 'A', score: 12 },
- { date: 2013-08-14T00:00:00.000Z, grade: 'C', score: 28 },
- { date: 2012-07-18T00:00:00.000Z, grade: 'A', score: 13 },
- { date: 2012-03-09T00:00:00.000Z, grade: 'A', score: 13 },
- { date: 2011-10-27T00:00:00.000Z, grade: 'A', score: 12 },
- { date: 2011-05-19T00:00:00.000Z, grade: 'A', score: 13 } ],
- name: 'Chopstix Restaurant',
- restaurant_id: '40900694' }
 
- * */
-/* GET home page. */
 /*********************************************************
  * Qno 1 :
  *  To display all the document of collection in database
@@ -252,7 +232,7 @@ router.get('/', function (req, res, next) {
  * Qno 13:
  * To display all the document of collection
  *  district bronux
- *  and prepare American and Chinese Cuisine
+ *  and prepare American or Chinese Cuisine
  ********************************************************/
 router.get('/', function (req, res, next) {
     const query = {
@@ -330,7 +310,7 @@ router.get('/', function (req, res, next) {
 /*********************************************************
  * Qno 17:
  * To display all the restaurant whose
- * second element of coord arrya contains tha value greater than 42 and less than 52
+ * second element of coord array contains the value greater than 42 and less than 52
  ********************************************************/
 router.get('/', function (req, res, next) {
 

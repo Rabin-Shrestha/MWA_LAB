@@ -1,0 +1,9 @@
+<div style="border: 2px solid ;border-radius: 5px;">
+  <ul>
+  <li *ngFor="let info of NameList">
+  <a [routerLink]="['','profile',info.id]">
+    {{info.name}}
+  </a>
+  </li>
+</ul>
+</div>

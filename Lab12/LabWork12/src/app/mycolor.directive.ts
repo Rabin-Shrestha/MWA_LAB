@@ -8,7 +8,6 @@ export class MycolorDirective implements OnInit {
 
   private colorList: string[] = ["red", "green", "orange", "purple", "yellow","white"];
   private RandomColor:string;
-
   @Output()private colorChangeEventEmitter: EventEmitter<string>; //Component that uses this Directive will hae input to receive colorChangeEventEmitter Object Which is event emitter
   @HostBinding('style.color') mycolor; // Bind the value of mycolor into style.color on appMycolor directive
   @HostListener('click') changeColor()  {

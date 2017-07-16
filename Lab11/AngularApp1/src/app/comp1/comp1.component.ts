@@ -14,10 +14,10 @@ import { Component, Input} from '@angular/core';
 })
 export class Comp1Component  {
   public message1;
-  @Input() message2;
+  @Input() message2; // What is this for ?? => will be input , value will be accessed from somewhere
   @Input() message3;
 
-  constructor() { 
+  constructor() {
      this.message1 = 'default message from testing'
   }
 

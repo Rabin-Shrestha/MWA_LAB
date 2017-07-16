@@ -13,7 +13,6 @@ html
     link(rel='stylesheet', href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css', integrity='sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp', crossorigin='anonymous')
     // Latest compiled and minified JavaScript
     script(src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js', integrity='sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa', crossorigin='anonymous')
-
   body
     h4 MUM Location Picker:
     fieldset.gllpLatlonPicker
@@ -39,8 +38,9 @@ html
       br
       br
       br
-    h4 Delete Location in Database
+    h4 Delete or update location
     form#form2(name='DelLocForm', method='post', action='/deleteLocation')
+      p Select Location by check box and click delete button
       input(type='hidden' name='locationId' id='locationID' value='')
       label List of loacation in Database:
            ol
@@ -50,37 +50,28 @@ html
                    button.btn.btn-info.btn-sm(type='button', class='editBtn' name=JSON.stringify(loc) value='Update' data-toggle='modal', data-target='#myModal') edit
 
 
-
-           button(type='submit') Delete location
-
-    // Modal
-    #myModal.modal.fade(role='dialog')
-      .modal-dialog
-        // Modal content
-        .modal-content
-          .modal-header
-            button.close(type='button', data-dismiss='modal') ×
-            h4.modal-title Update Location in Database
-          .modal-body
-            form#form3(name='updateLocForm', method='post', action='/updateLocation')
-                  input(type='hidden' name='upId' id='upLocId' value='')
-                  label Name:
-                  input(type='text', placeholder='Location Name', id='upName' name='upName')
-                  br
-                  br
-                  label Type:
-                  input(type='text', placeholder='Location Type', id='upType' name='upType')
-                  br
-                  br
-                  label Latitude:
-                  input(type='text', placeholder='Latitude', id='updateLat' name='upLat')
-                  br
-                  br
-                  label Longitude:
-                  input(type='text', placeholder='Longitude', id='updateLong' name='upLong')
-                  br
-                  br
-                  button(type='submit') Update location
-
-
-
+      input(type='submit', value='Delete Locations')
+    #UpdateScreenModel
+      // Modal
+      #myModal.modal.fade(role='dialog')
+        .modal-dialog
+          // Modal content
+          .modal-content
+            .modal-header
+              button.close(type='button', data-dismiss='modal') ×
+              h4.modal-title Update Location Information
+            .modal-body
+              form(name='Form3', method='post', ,='', action='/updateLocation')
+                .form-group
+                  label(for='upName') Location Name
+                  input#upName.form-control(type='text', name='upName')
+                .form-group
+                  label(for='upName') Location Category
+                  input#upType.form-control(type='text', name='upType')
+                .form-group
+                  label(for='upName') Latitude
+                  input#upLat.form-control(type='text', name='upLat')
+                .form-group
+                  label(for='upName') Longitude
+                  input#upLong.form-control(type='text', name='upLong')
+                button.btn.btn-default(type='submit') Submit

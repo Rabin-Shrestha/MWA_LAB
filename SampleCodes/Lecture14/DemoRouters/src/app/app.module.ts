@@ -18,6 +18,7 @@ import { GuardsComponent } from './guards/guards.component';
 
 import { MyCanActivateGuard } from "./guards/mycanactivate.guard";
 import { MyCanDeactivateGuard } from "./guards/mycandeactivate.guard";
+import { MyPipePipe } from './my-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { MyCanDeactivateGuard } from "./guards/mycandeactivate.guard";
     PreserveComponent,
     ParentComponent,
     ChildComponent,
-    GuardsComponent
+    GuardsComponent,
+    MyPipePipe
   ],
   imports: [
     BrowserModule,

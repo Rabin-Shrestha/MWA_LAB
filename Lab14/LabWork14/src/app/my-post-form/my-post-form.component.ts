@@ -33,10 +33,10 @@ export class MyPostFormComponent implements OnInit
   {
     let resultDataProvider=this.myService.loadData();
 
-      resultDataProvider.subscribe((result)=> {
+      resultDataProvider.subscribe((result)=>
+      {
         console.log((result[0]));
         console.log((result[1][1]));
-
         /*
         THIS IS BAD PRACTICE
         this.myForm.controls['name'].setValue(result[0].name);

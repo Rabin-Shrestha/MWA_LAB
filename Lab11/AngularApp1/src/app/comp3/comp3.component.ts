@@ -9,10 +9,10 @@ import { Component, Output, EventEmitter } from '@angular/core';
 })
 export class Comp3Component {
   public data = {
-      'firstname': 'Asaad', 
+      'firstname': 'Asaad',
       'lastname': 'Saad'
   };
-  @Output() messageEmitter = new EventEmitter();
+  @Output() messageEmitter = new EventEmitter(); // What is this for ??==> for output reason
 
   emitMessage() {
     this.messageEmitter.emit(this.data);

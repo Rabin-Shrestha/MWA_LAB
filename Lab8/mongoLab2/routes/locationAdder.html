@@ -7,9 +7,15 @@
     <link rel="stylesheet" href="/stylesheets/jquery-gmaps-latlon-picker.css">
     <script src="/javascripts/jquery-gmaps-latlon-picker.js"></script>
     <script src="/javascripts/myScript.js"></script>
+    <!-- Latest compiled and minified CSS-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Optional theme-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+    <!-- Latest compiled and minified JavaScript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 </head>
 <body>
-<h1>MUM Location Picker:</h1>
+<h4>MUM Location Picker:</h4>
 <fieldset class="gllpLatlonPicker">
     <input type="text" class="gllpSearchField">
     <input type="button" value="search" class="gllpSearchButton">
@@ -18,7 +24,7 @@
     <div class="gllpMap">Google Maps</div>
     <input type="hidden" value="3" class="gllpZoom">
 </fieldset>
-<h3>Add Location in Database</h3>
+<h4>Add Location in Database</h4>
 <p>Point the location on map, then enter name and type of location</p>
 <form id="form1" name="addLocation" method="post" action="/addLocation">
     <label>Name:</label>
@@ -27,19 +33,47 @@
     <input type="text" placeholder="Location Type" name="type"><br><br>
     <button type="submit">Add location</button><br><br><br><br>
 </form>
+<h4>Delete or update location</h4>
 <form id="form2" name="DelLocForm" method="post" action="/deleteLocation">
-
+    <p>Select Location by check box and click delete button</p>
+    <input id="locationID" type="hidden" name="locationId" value="">
+    <input type="hidden" name="locationId" id="locationID" value="">
+    <input type="submit" value="Delete Locations">
 </form>
-<form id="form3" name="updateLocForm" method="post" action="/updateLocation">
-    <label>Name:</label>
-    <input type="text" placeholder="Location Name" name="name"><br><br>
-    <label>Type:</label>
-    <input type="text" placeholder="Location Type" name="type"><br><br>
-    <label>Latitude:</label>
-    <input type="text" placeholder="Location Name" name="updateLat"><br><br>
-    <label>Longitude:</label>
-    <input type="text" placeholder="Location Type" name="updateLong"><br><br>
-    <button type="submit">Add location</button><br><br><br><br>
-</form>
+<div id="UpdateScreenModel">
+    <!-- Modal-->
+    <div id="myModal" role="dialog" class="modal fade">
+        <div class="modal-dialog">
+            <!-- Modal content-->
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" data-dismiss="modal" class="close">×</button>
+                    <h4 class="modal-title">Modal Header</h4>
+                </div>
+                <div class="modal-body">
+                    <form name="Form3" method="post" ,="" action="/updateLocation">
+                        <div class="form-group">
+                            <label for="upName">Location Name</label>
+                            <input id="upName" type="text" name="upName" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="upName">Location Category</label>
+                            <input id="upType" type="text" name="upType" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="upName">Latitude</label>
+                            <input id="upLat" type="text" name="upLat" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="upName">Longitude</label>
+                            <input id="upLong" type="text" name="upLong" class="form-control">
+                        </div>
+                        <button type="submit" class="btn btn-default">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

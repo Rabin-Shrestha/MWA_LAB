@@ -1,5 +1,5 @@
 /*****************************************
-*1. Find all the zip codes in Iowa state.
+*Qno1. Find all the zip codes in Iowa state.
 ******************************************/
 db.states.aggregate([
     {$match: {'state': 'IA'}},
@@ -9,7 +9,7 @@ db.states.aggregate([
 
 
 /*****************************************
-*2. Find all the zip codes with a population less than 1000.
+*Qno2. Find all the zip codes with a population less than 1000.
 ******************************************
 db.states.aggregate([
     {$match: {'pop': {$lt: 1000}}},
@@ -18,7 +18,7 @@ db.states.aggregate([
 
 
 /*****************************************
-*3. Find all the cities that have more than one zip code, sort the results based by state and city name.
+*Qno3. Find all the cities that have more than one zip code, sort the results based by state and city name.
 ******************************************/
 db.states.aggregate([
     {$group: {_id: {'city': '$city', 'state': '$state'}, 'num_zipcodes': {$sum: 1}}},
@@ -29,7 +29,7 @@ db.states.aggregate([
 
 
 /*****************************************
-*4. Display the least populated city in each state.
+*Qno4. Display the least populated city in each state.
 ******************************************/
 db.states.aggregate([
     {$group: {'_id': {'city': '$city', 'state': '$state'}, 'population': {$sum: '$pop'}}},

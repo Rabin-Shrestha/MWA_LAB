@@ -22,7 +22,7 @@ Student {
 }
 
 If we need to read large data we prefer embedding of data into single document and
-if there occur frequent change in data, then seperate document and linking is preferrable.
+if there occur frequent change in data, then separate document and linking is preferable.
 Since, in normal case there are few authors of books, few students borrow books, and books written
 by author is also limited in size, we can consider this as many to many relation so embed is better for
 few to few and linking is better for performance in large data.

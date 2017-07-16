@@ -29,7 +29,7 @@ import {Component, EventEmitter, OnInit} from '@angular/core';
       height: 200px;
       width: 200px;
     }`],
-  inputs: ['counterValue:currentCounterValue'] // for outside this component we will use currentCounterValue to be input for counterValue. here currentCounterValue is input and need to be read using [] big bracked
+  inputs: ['counterValue:currentCounterValue'] // for outside this component we will use currentCounterValue to be input for counterValue. here currentCounterValue is input and need to be read using [] big bracket
   , outputs: ['counterChange'] // we are exposing counterChange variable to outside( parent object), as an input to them. they will receive input using () parenthesis
 
 })

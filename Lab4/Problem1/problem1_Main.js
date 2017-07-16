@@ -16,7 +16,6 @@ function requestHandler(request, response){
     console.log(`Request handler called .....!!`);
     const filePath=url.parse(request.url,true).query.url;
     console.log(`File requested is : ${filePath} `);
-
     const childProcess=fork('problem1_childProcess.js');
     childProcess.send(filePath);
     childProcess.on('message',(resultData)=>{ response.write(resultData); response.end("File Read completed !!")})
